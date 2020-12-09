@@ -22,7 +22,7 @@ CREATE TABLE paint (
 INSERT INTO artist (name,yearOfBirth,nationality,workStyle,picture)
 VALUES ('Vincent van Gogh',1853,'Dutch','Realism','https://www.biography.com/.image/t_share/MTY2NTIzMzc4MTI2MDM4MjM5/vincent_van_gogh_self_portrait_painting_musee_dorsay_via_wikimedia_commons_promojpg.jpg');
 
-INSERT INTO paint (name,yearOfBirth,nationality,workStyle,picture)
+INSERT INTO paint (name,yearOfMaking,artStyle,price,picture,artistId)
 VALUES ('Vincent van Gogh paint',1853,'Modern Art',1000600,'https://www.biography.com/.image/t_share/MTY2NTIzMzc4MTI2MDM4MjM5/vincent_van_gogh_self_portrait_painting_musee_dorsay_via_wikimedia_commons_promojpg.jpg',1);
 
 COMMIT;
