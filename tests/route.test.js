@@ -33,7 +33,7 @@ test('router /artist testing ',()  => {
     })
     .expect(201)
     .then((response)=>{
-        expect(response.body.rowCount).toBe(2)
+        expect(response.body.rowCount).toBe(1)
     } );
    
 });
@@ -44,7 +44,7 @@ test('route /artist return gaza weather page', () => {
     .expect(200)
     .then((res) => {
         console.log(res.body.length, 3)
-        expect(res.body.length).toBe(1)
+        expect(res.body.length).toBe(2)
     });
 });
 
