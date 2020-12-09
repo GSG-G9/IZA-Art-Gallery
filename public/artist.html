@@ -9,15 +9,15 @@
 </head>
 <body>
     <header class="header"> <h1>Artists</h1>
-        <form action="/artist" id="search-form" role="search" method="post">
-            <input name="name" id="search" type="text" placeholder="Artist name..." />
-            <button type="submit">search</button> </form>
+        <div  id="search-form">
+             <input name="name" id="search" type="text" placeholder="Artist name..." />
+            <button type="submit">search</button> </div>
     </header>
     <div class ="container">
         <button class="butt" onclick="openForm()">Add Artist</button>
         <div class="form-popup" id="myForm">
             <div class="form-container">
-            <form action="/addartist" method="POST">
+            <form action="/artist" method="POST">
               
               <h1>Add Artist</h1>
           
