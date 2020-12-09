@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <header class="header"> <h1>Artists</h1>
+        <form action="/artist" id="search-form" role="search" method="post">
+            <input name="name" id="search" type="text" placeholder="Artist name..." />
+            <button type="submit">search</button> </form>
+    </header>
+    <div class ="container">
+        <button class="butt" onclick="openForm()">Add Artist</button>
+        <div class="form-popup" id="myForm">
+            <div class="form-container">
+            <form action="/addartist" method="POST">
+              
+              <h1>Add Artist</h1>
+          
+              <label for="name"><b>Name</b></label>
+              <input type="text" placeholder=" Name" name="name" required>
+          
+              <label for="yearOfBirth"><b>Year of Birthd</b></label>
+              <input type="text" placeholder="" name="yearOfBirth" >
+
+              <label for="nationality"><b>Nationality</b></label>
+              <input type="text" placeholder="Nationality" name="nationality" >
+
+
+              <label for="workStyle"><b>Style of Work</b></label>
+              <input type="text" placeholder="Style of Work" name="workStyle" >
+          
+
+              <label for="picture"><b>Picture</b></label>
+              <input type="text" placeholder="Picture url" name="picture" >
+
+              <button type="submit" class="btn">Add</button>
+              <button type="button" class="cancel" onclick="closeForm()">Cancel</button>
+            </form>
+        </div>
+    </div>
+          
+   </div>
+
+ 
+  </form>
+  <script src="js/app.js"></script>
+</body>
+</html>
