@@ -1,5 +1,6 @@
 const express = require("express");
 const { getTheArtist } = require("./routes");
+const { error404, error500 } = require('./error.js');
 const {
   getArtist1,
   getArtistByName,
@@ -41,4 +42,7 @@ router.post("/artist", (req, res) => {
       console.log({ err });
     });
 });
+
+router.use(error404);
+router.use(error500);
 module.exports = router;

@@ -1,16 +1,5 @@
 const { Pool } = require('pg');
-// require('dotenv').config({path :'./config.env'});
-// require("dotenv").config()
 require ('env2')('./config.env');
-// const {DB_URL} = process.env;
-// const params = new URL(process.env.DB_URL);
-// console.log('connection'+ DB_URL)
-// if (!process.env.DB_URL) throw new Error('No Database URL!!!');
-// const options = {
-//     connectionString : DB_URL,
-//     ssl : params.hostname != 'localhost' 
-// }
-
 
 let dbUrl ='';
 console.log(process.env.NODE_ENV)
