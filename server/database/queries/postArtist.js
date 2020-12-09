@@ -1,7 +1,7 @@
 const dbConnection = require("../config/connection");
 
 const postArtist1 = (userData) => {
-  console.log({ userData });
+ // console.log({ userData });
   const { name, yearOfBirth, nationality, workStyle, picture } = userData;
   const sql = {
     text:

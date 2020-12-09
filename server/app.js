@@ -3,6 +3,7 @@ const { join } = require("path");
 const router = require("./controllers/index");
 const bodyParser = require('body-parser')
 const app = express();
+require('env2')('./config.env');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
