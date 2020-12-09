@@ -44,7 +44,7 @@ test('route /artist return gaza weather page', () => {
     .expect(200)
     .then((res) => {
         console.log(res.body.length, 3)
-        expect(res.body.length).toBe(2)
+        expect(res.body.length).toBe(1)
     });
 });
 
