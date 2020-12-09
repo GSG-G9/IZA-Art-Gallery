@@ -1,10 +1,10 @@
 const dbConnection = require("../config/connection");
 
-const getArtist1= (userinput) => {
-    const {name}=userinput;
+const getArtist1= (name) => {
+
     const sql = {
-        text: "SELECT * FROM atrist where name = ($1);",
-        values: [name]
+        text: "SELECT * FROM artist where name ILIKE $1;",
+        values: [`%${name}%`]
       };
       return dbConnection.query(sql);
 };
