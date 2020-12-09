@@ -33,8 +33,9 @@ router.get("/artist/:search", (req, res) => {
 router.post("/artist", (req, res) => {
   console.log(req.body);
   postArtist1(req.body)
-    .then((result) => {
-      res.redirect("/artist.html");
+    .then(({rowCount}) => {
+        res.status(201).json({rowCount})
+      //res.redirect("/artist.html");
     })
     .catch((err) => {
       console.log({ err });

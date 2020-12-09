@@ -15,4 +15,8 @@ app.set("port", process.env.PORT || 5110);
 
 app.use(router);
 
+app.use((err,req,res,next)=>{
+console.log(err)
+})
+
 module.exports = app;

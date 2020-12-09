@@ -1,5 +1,12 @@
 const request = require('supertest');
 const app = require('../server/app');
+const connection = require('../server/database/config/connection')
+const { dbBuild } = require("../server/database/config/build");
+
+beforeEach(()=>{
+    return dbBuild();
+  })
+  
 
 // test('route /anything return 404html page', (done) => {
 //   request(app)
@@ -13,7 +20,7 @@ const app = require('../server/app');
 //     });
 // });
 test('router /artist testing ',()  => {
-    const req=request(app)
+    return request(app)
 
     .post('/artist')
     .send({
@@ -24,24 +31,23 @@ test('router /artist testing ',()  => {
         picture:'httpjm'
 
     })
-    .expect(302)
-    .end((err, res) => {
-    // //   if (err) return err;
-    //   console.log(res.body)
-    //   expect(1).toBe('hala');
-      
-    });
-    console.log({req})
-    expect(1).toBe(1)
+    .expect(201)
+    .then((response)=>{
+        expect(response.body.rowCount).toBe(2)
+    } );
+   
 });
 
-// test('route /weather return gaza weather page', (done) => {
-//   request(app)
-//     .get('/weather')
-//     .expect(200)
-//     .end((err, res) => {
-//       if (err) return done(err);
-//       expect(res.body.name).toBe('Gaza');
-//       done();
-//     });
-// });
+test('route /artist return gaza weather page', () => {
+  return request(app)
+    .get('/artist')
+    .expect(200)
+    .then((res) => {
+        console.log(res.body.length, 3)
+        expect(res.body.length).toBe(2)
+    });
+});
+
+afterAll(()=>{
+    return connection.end();
+})
