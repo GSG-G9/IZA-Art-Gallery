@@ -1,6 +1,6 @@
 
 const { getArtist1 } = require("../database/queries/getArtist");
-// const { postData } = require("../database/queries/postData");
+
 
 
  getTheArtist = (req, res) => {

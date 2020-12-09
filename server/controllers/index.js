@@ -1,5 +1,6 @@
 const express = require("express");
 const { getTheArtist } = require("./routes");
+const { error404, error500 } = require('./error.js');
 const {
   getArtist1,
   getArtistByName,
@@ -30,15 +31,18 @@ router.get("/artist/:search", (req, res) => {
       console.log({ err });
     });
 });
-// router.post("/create-user", user.add);
+
 router.post("/artist", (req, res) => {
   postArtist1(req.body)
-    .then((result) => {
-      console.log(result.rows);
-      res.redirect('artist.html');
+    .then(({rowCount}) => {
+        res.status(201).json({rowCount})
+  
     })
     .catch((err) => {
       console.log({ err });
     });
 });
+
+router.use(error404);
+router.use(error500);
 module.exports = router;
