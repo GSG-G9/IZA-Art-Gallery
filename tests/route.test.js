@@ -7,18 +7,6 @@ beforeEach(()=>{
     return dbBuild();
   })
   
-
-// test('route /anything return 404html page', (done) => {
-//   request(app)
-//     .get('/hi')
-//     .expect(404)
-//     .end((err, res) => {
-//       if (err) return done(err);
-//       // eslint-disable-next-line no-console
-//       console.log(res.body);
-//       done();
-//     });
-// });
 test('router /artist testing ',()  => {
     return request(app)
 
@@ -38,7 +26,7 @@ test('router /artist testing ',()  => {
    
 });
 
-test('route /artist return gaza weather page', () => {
+test('route /artist ', () => {
   return request(app)
     .get('/artist')
     .expect(200)

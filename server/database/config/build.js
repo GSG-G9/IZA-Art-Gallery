@@ -9,9 +9,3 @@ const dbBuild = () => {
 };
 
 module.exports = { dbBuild };
-
-// const sql = readFileSync(join(__dirname,'build.sql')).toString();
-// connection
-// .query(sql)
-// .then(()=>console.log('database created successfully'))
-// .catch((error)=>console.log(`${err} somthing went wrong`))

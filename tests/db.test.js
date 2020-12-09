@@ -48,7 +48,6 @@ test('postArtist',()=>{
 
     })
     .then(({rows,rowCount})=>{
-    //   console.log({rows,rowCount});
       expect(rowCount).toBe(1)
 
     })
