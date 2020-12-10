@@ -1,8 +1,18 @@
 language : node_js
 node_js: lts/* 
 
+
 services:
   - postgresql
 
-  before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+before_script:
+  - psql -c "create database arttest;" -U postgres
+  - psql -c "create user db1_iza with password '123';" -U postgres
+env: 
+  global:
+  - PGPORT=5432
+test:
+  adapter: postgresql
+  database: arttest
+
+ 
