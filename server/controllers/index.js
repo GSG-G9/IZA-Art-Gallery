@@ -1,6 +1,6 @@
 const express = require("express");
 const { getTheArtist } = require("./routes");
-const { error404, error500 } = require('./error.js');
+const { error404, error500 } = require("./error.js");
 const {
   getArtist1,
   getArtistByName,
@@ -9,37 +9,35 @@ const { postArtist1 } = require("../database/queries/postArtist");
 
 const router = express.Router();
 
-//console.log("controller index");
-// router.get('/artist',getTheArtist);//
-router.get("/artist", (req, res) => {
+router.get("/artist", (req, res, next) => {
   getArtist1()
     .then((result) => {
       res.json(result.rows);
     })
     .catch((err) => {
-      console.log({ err });
+      next(err);
     });
 });
-router.get("/artist/:search", (req, res) => {
+router.get("/artist/:search", (req, res, next) => {
   const valueName = req.params.search;
   getArtistByName(valueName)
     .then((result) => {
-      console.log(result.rows)
-       res.json(result.rows);
+      console.log(result.rows);
+      res.json(result.rows);
     })
     .catch((err) => {
-      console.log({ err });
+      next(err);
     });
 });
 
-router.post("/artist", (req, res) => {
+router.post("/artist", (req, res, next) => {
   postArtist1(req.body)
-    .then(({rowCount}) => {
-        res.status(201).json({rowCount})
-  
+    .then(() => {
+      res.redirect("/artist.html");
     })
+
     .catch((err) => {
-      console.log({ err });
+      next(err);
     });
 });
 
