@@ -18,16 +18,17 @@ const artistCreation = (res) => {
   const artist = document.createElement("div");
   artist.setAttribute("class", "artist-search-result");
   const nameTag = document.createElement("p");
-  nameTag.textContent = res[0].name;
+  nameTag.textContent = `Name:${res.name}`;
   const nationalityTag = document.createElement("p");
-  nationalityTag.textContent = res[0].nationality;
+  nationalityTag.textContent = `nationality:${res.nationality}`;
   const workstyleTag = document.createElement("p");
-  workstyleTag.textContent = res[0].workstyle;
+  workstyleTag.textContent = `workstyle:${res.workstyle}`;
   const pictureTag = document.createElement("img");
-  pictureTag.src = res[0].picture;
-  artist.appendChild("name: ", nameTag);
-  artist.appendChild("nationality: ", nationalityTag);
-  artist.appendChild("work style: ", workstyleTag);
+  pictureTag.src = res.picture;
+
+  artist.appendChild(nameTag);
+  artist.appendChild(nationalityTag);
+  artist.appendChild(workstyleTag);
   artist.appendChild(pictureTag);
   results.appendChild(artist);
 };
@@ -41,10 +42,13 @@ const searchForArtist = () => {
     searchDiv.appendChild(message);
   } else {
     fetch(value)
-      .then((response) => response.json())
+      .then((response) => {
+        return response.json();
+      })
+
       .then((res) => {
         results.textContent = "";
-        artistCreation(res);
+        res.map((artist) => artistCreation(artist));
       });
   }
 };
@@ -73,11 +77,11 @@ const renderArtist = (data) => {
   data.forEach((element) => {
     const artist = document.createElement("div");
     const nameTag = document.createElement("p");
-    nameTag.textContent = element.name;
+    nameTag.textContent = `Name: ${element.name}`;
     const nationalityTag = document.createElement("p");
-    nationalityTag.textContent = element.nationality;
+    nationalityTag.textContent = `Nationality:${element.nationality}`;
     const workstyleTag = document.createElement("p");
-    workstyleTag.textContent = element.workstyle;
+    workstyleTag.textContent = `Work Style: ${element.workstyle}`;
     const pictureTag = document.createElement("img");
     pictureTag.src = element.picture;
     artist.appendChild(nameTag);

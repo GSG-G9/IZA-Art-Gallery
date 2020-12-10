@@ -1,51 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artist</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-</head>
-<body>
-    <header class="header"> <h1>Artists</h1>
-        <div  id="search-form">
-             <input name="name" id="search" type="text" placeholder="Artist name..." />
-            <button id="search-btn" type="submit">search</button> </div>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Artists</h1>
+
+      <div id="search-form">
+        <input
+          name="name"
+          id="search"
+          type="search"
+          placeholder="Artist name..."
+        />
+        <button id="search-btn" type="submit">search</button>
+      </div>
+      <div id="rsultArtisr"></div>
     </header>
-    <div class ="container">
-        <button class="butt" onclick="openForm()">Add Artist</button>
-        <div class="form-popup" id="myForm">
-            <div class="form-container">
-            <form action="/artist" method="POST" id="artist-form">
-              
-              <h1>Add Artist</h1>
-          
-              <label for="name"><b>Name</b></label>
-              <input type="text" placeholder=" Name" name="name" required id="artist-name">
-          
-              <label for="yearOfBirth"><b>Year of Birthd</b></label>
-              <input type="text" placeholder="" name="yearOfBirth" id="artist-year">
+    <div class="container">
+      <button class="butt" onclick="openForm()">Add Artist</button>
+      <div class="form-popup" id="myForm">
+        <div class="form-container">
+          <form action="/artist" method="POST" id="artist-form">
+            <h1>Add Artist</h1>
 
-              <label for="nationality"><b>Nationality</b></label>
-              <input type="text" placeholder="Nationality" name="nationality" id="artist-nationality">
+            <label for="name"><b>Name</b></label>
+            <br />
+            <input
+              type="text"
+              placeholder=" Name"
+              name="name"
+              required
+              id="artist-name"
+            />
+            <br />
 
+            <label for="yearOfBirth"><b>Year of Birthd</b></label>
 
-              <label for="workStyle"><b>Style of Work</b></label>
-              <input type="text" placeholder="Style of Work" name="workStyle" id="artist-work-style">
-          
+            <input
+              type="text"
+              placeholder=""
+              name="yearOfBirth"
+              id="artist-year"
+            />
+            <br />
 
-              <label for="picture"><b>Picture</b></label>
-              <input type="text" placeholder="Picture url" name="picture" id="artist-picture">
+            <label for="nationality"><b>Nationality</b></label>
+            <input
+              type="text"
+              placeholder="Nationality"
+              name="nationality"
+              id="artist-nationality"
+            />
+            <br />
 
-              <button type="submit" class="btn" id="submit">Add</button>
-              <button type="button" class="cancel" onclick="closeForm()" id="cancel">Cancel</button>
-            </form>
+            <label for="workStyle"><b>Style of Work</b></label>
+            <input
+              type="text"
+              placeholder="Style of Work"
+              name="workStyle"
+              id="artist-work-style"
+            />
+            <br />
+
+            <label for="picture"><b>Picture</b></label>
+            <br />
+            <input
+              type="text"
+              placeholder="Picture url"
+              name="picture"
+              id="artist-picture"
+            />
+            <br />
+
+            <button type="submit" class="btn" id="submit">Add</button>
+            <button
+              type="button"
+              class="cancel"
+              onclick="closeForm()"
+              id="cancel"
+            >
+              Cancel
+            </button>
+          </form>
         </div>
+      </div>
+      <div class="results" id="results"></div>
     </div>
-       <div class="results" id="results"></div>   
-   </div>
 
-  <script src="js/app.js"></script>
-</body>
+    <script src="js/app.js"></script>
+  </body>
 </html>
