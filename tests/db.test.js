@@ -19,7 +19,7 @@ test('getArtist ',()=>{
     return getArtist1()
     .then((data)=>{
         console.log(data.rowCount);
-        expect(data.rowCount).toBe(2)
+        expect(data.rowCount).toBe(3)
         expect(data.rows[1].name).toBe('Israa')
     })
     .catch(err =>{

@@ -19,10 +19,8 @@ test('router /artist testing ',()  => {
         picture:'httpjm'
 
     })
-    .expect(201)
-    .then((response)=>{
-        expect(response.body.rowCount).toBe(1)
-    } );
+    .expect(302)
+   
    
 });
 
@@ -32,7 +30,7 @@ test('route /artist ', () => {
     .expect(200)
     .then((res) => {
         console.log(res.body.length, 3)
-        expect(res.body.length).toBe(2)
+        expect(res.body.length).toBe(3)
     });
 });
 
